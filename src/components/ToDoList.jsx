@@ -1,14 +1,12 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
+import ToDosContext from '../context/ToDosContext';
 
-export default function ToDoList({
-  todos,
-  handleClickDeleteTodo,
-}) {
-  if (todos.length === 0) return <p>Nenhum todo até o momento</p>;
+export default function ToDoList() {
+  const { todosList, handleClickDeleteTodo } = useContext(ToDosContext);
+  if (todosList.length === 0) return <p>Nenhum todo até o momento</p>;
   return (
     <section>
-      {todos.map(({ todo, id }) => (
+      {todosList.map(({ todo, id }) => (
         <div key={id}>
           <p>{todo}</p>
           <button type="button">Editar</button>
@@ -23,8 +21,3 @@ export default function ToDoList({
     </section>
   );
 }
-
-ToDoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  handleClickDeleteTodo: PropTypes.func.isRequired,
-};

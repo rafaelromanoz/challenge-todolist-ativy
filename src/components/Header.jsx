@@ -1,15 +1,20 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
+import ToDosContext from '../context/ToDosContext';
+import { HeaderContainer, Title } from './styles/HeaderStyles';
 
-export default function Header({ todo, setTodo, handleClickAddTodo }) {
+export default function Header() {
+  const {
+    inputRef, setTodo, todo, handleClickAddTodo,
+  } = useContext(ToDosContext);
   return (
-    <div>
-      <h1>Challenge TodoList Ativy</h1>
+    <HeaderContainer>
+      <Title>Challenge TodoList Ativy</Title>
       <label htmlFor="inputTodo">
         Todo
         <input
           id="inputTodo"
           type="text"
+          ref={inputRef}
           placeholder="digite um todo"
           onChange={({ target }) => setTodo(target.value)}
           value={todo}
@@ -24,12 +29,6 @@ export default function Header({ todo, setTodo, handleClickAddTodo }) {
       >
         Adicionar
       </button>
-    </div>
+    </HeaderContainer>
   );
 }
-
-Header.propTypes = {
-  setTodo: PropTypes.func.isRequired,
-  todo: PropTypes.string.isRequired,
-  handleClickAddTodo: PropTypes.func.isRequired,
-};
