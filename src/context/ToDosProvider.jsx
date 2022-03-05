@@ -5,6 +5,7 @@ import ToDosContext from './ToDosContext';
 export default function ToDosProvider({ children }) {
   const [todosList, setTodosList] = useState([]);
   const [id, setId] = useState(0);
+  const [currentId, setCurrentId] = useState(0);
   const [todo, setTodo] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
   const inputRef = useRef();
@@ -27,9 +28,9 @@ export default function ToDosProvider({ children }) {
     setTodosList((prevStateTodos) => prevStateTodos.filter((t) => t.id !== idTodo));
   };
 
-  const handleClickUpdateTodo = (id) => {
-  console.log('🚀 ~ file: ToDosProvider.jsx ~ line 31 ~ handleClickUpdateTodo ~ id', id);
+  const handleClickUpdateTodo = (currentIdUpdate) => {
     setModalOpen(!isModalOpen);
+    setCurrentId(currentIdUpdate);
   };
 
   const context = {
@@ -37,10 +38,14 @@ export default function ToDosProvider({ children }) {
     handleClickAddTodo,
     handleClickDeleteTodo,
     handleClickUpdateTodo,
+    setTodosList,
+    setModalOpen,
     isModalOpen,
     todo,
     inputRef,
     todosList,
+    id,
+    currentId,
   };
 
   const valueContextMemo = useMemo(() => ({
