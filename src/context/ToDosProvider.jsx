@@ -6,7 +6,7 @@ export default function ToDosProvider({ children }) {
   const [todosList, setTodosList] = useState([]);
   const [id, setId] = useState(0);
   const [todo, setTodo] = useState('');
-  // const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
   const inputRef = useRef();
   const handleClickAddTodo = () => {
     // aqui estou criando um id para ser mais fácil identificar os todos
@@ -21,18 +21,28 @@ export default function ToDosProvider({ children }) {
     setTodo('');
     inputRef.current.focus();
   };
+
   const handleClickDeleteTodo = (idTodo) => {
     // aqui é pego os todos e retorno todos que são diferentes do id, fazendo assim a exclusão
     setTodosList((prevStateTodos) => prevStateTodos.filter((t) => t.id !== idTodo));
   };
+
+  const handleClickUpdateTodo = (id) => {
+  console.log('🚀 ~ file: ToDosProvider.jsx ~ line 31 ~ handleClickUpdateTodo ~ id', id);
+    setModalOpen(!isModalOpen);
+  };
+
   const context = {
     setTodo,
     handleClickAddTodo,
     handleClickDeleteTodo,
+    handleClickUpdateTodo,
+    isModalOpen,
     todo,
     inputRef,
     todosList,
   };
+
   const valueContextMemo = useMemo(() => ({
     ...context,
   }));

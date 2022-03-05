@@ -1,17 +1,25 @@
 import React, { useContext } from 'react';
 import ToDosContext from '../context/ToDosContext';
-import { HeaderContainer, Title } from './styles/HeaderStyles';
+import {
+  HeaderContainer,
+  Input,
+  LabelInput,
+  Title,
+  ButtonHeader,
+} from './styles/HeaderStyles';
 
 export default function Header() {
   const {
-    inputRef, setTodo, todo, handleClickAddTodo,
+    inputRef,
+    setTodo,
+    todo,
+    handleClickAddTodo,
   } = useContext(ToDosContext);
   return (
     <HeaderContainer>
       <Title>Challenge TodoList Ativy</Title>
-      <label htmlFor="inputTodo">
-        Todo
-        <input
+      <LabelInput htmlFor="inputTodo">
+        <Input
           id="inputTodo"
           type="text"
           ref={inputRef}
@@ -19,16 +27,16 @@ export default function Header() {
           onChange={({ target }) => setTodo(target.value)}
           value={todo}
         />
-      </label>
-      <button
-        aria-label="buttonAdd"
+      </LabelInput>
+      <ButtonHeader
+        aria-label="ButtonHeaderAdd"
         type="button"
         disabled={todo === ''}
         id="buttonAdd"
         onClick={handleClickAddTodo}
       >
         Adicionar
-      </button>
+      </ButtonHeader>
     </HeaderContainer>
   );
 }
