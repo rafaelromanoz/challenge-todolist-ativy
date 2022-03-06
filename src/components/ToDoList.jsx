@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import ToDosContext from '../context/ToDosContext';
+import { TodoCard, TodoContainerCard } from './styles/ToDoListStyles';
 
 export default function ToDoList() {
   const { todosList, handleClickDeleteTodo, handleClickUpdateTodo } = useContext(ToDosContext);
-  if (todosList.length === 0) return <p>Nenhum todo até o momento</p>;
+  if (todosList.length === 0) return <p style={{ textAlign: 'center' }}>Nenhum todo até o momento</p>;
   return (
-    <section>
+    <TodoContainerCard>
       {todosList.map(({ todo, id }) => (
-        <div key={id}>
+        <TodoCard key={id}>
           <p>{todo}</p>
           <button
             type="button"
@@ -21,8 +22,8 @@ export default function ToDoList() {
           >
             Deletar
           </button>
-        </div>
+        </TodoCard>
       ))}
-    </section>
+    </TodoContainerCard>
   );
 }

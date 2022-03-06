@@ -6,6 +6,7 @@ import {
   LabelInput,
   Title,
   ButtonHeader,
+  ContainerInputAndButton,
 } from './styles/HeaderStyles';
 
 export default function Header() {
@@ -18,25 +19,27 @@ export default function Header() {
   return (
     <HeaderContainer>
       <Title>Challenge TodoList Ativy</Title>
-      <LabelInput htmlFor="inputTodo">
-        <Input
-          id="inputTodo"
-          type="text"
-          ref={inputRef}
-          placeholder="digite um todo"
-          onChange={({ target }) => setTodo(target.value)}
-          value={todo}
-        />
-      </LabelInput>
-      <ButtonHeader
-        aria-label="ButtonHeaderAdd"
-        type="button"
-        disabled={todo === ''}
-        id="buttonAdd"
-        onClick={handleClickAddTodo}
-      >
-        Adicionar
-      </ButtonHeader>
+      <ContainerInputAndButton>
+        <LabelInput htmlFor="inputTodo">
+          <Input
+            id="inputTodo"
+            type="text"
+            ref={inputRef}
+            placeholder="digite um todo"
+            onChange={({ target }) => setTodo(target.value)}
+            value={todo}
+          />
+        </LabelInput>
+        <ButtonHeader
+          aria-label="ButtonHeaderAdd"
+          type="button"
+          disabled={todo === ''}
+          id="buttonAdd"
+          onClick={handleClickAddTodo}
+        >
+          Adicionar
+        </ButtonHeader>
+      </ContainerInputAndButton>
     </HeaderContainer>
   );
 }
