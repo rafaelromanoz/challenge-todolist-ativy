@@ -1,13 +1,14 @@
-import PropTypes from 'prop-types';
 import React, { useMemo, useRef, useState } from 'react';
+import Home from '../pages/Home';
 import ToDosContext from './ToDosContext';
 
-export default function ToDosProvider({ children }) {
+export default function ToDosProvider() {
   const [todosList, setTodosList] = useState([]);
   const [id, setId] = useState(0);
   const [currentId, setCurrentId] = useState(0);
   const [todo, setTodo] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isLightOrDarkMode, setIsLightOrDarkMode] = useState(false);
   const inputRef = useRef();
   const handleClickAddTodo = () => {
     // aqui estou criando um id para ser mais fácil identificar os todos
@@ -40,12 +41,14 @@ export default function ToDosProvider({ children }) {
     handleClickUpdateTodo,
     setTodosList,
     setModalOpen,
+    setIsLightOrDarkMode,
     isModalOpen,
     todo,
     inputRef,
     todosList,
     id,
     currentId,
+    isLightOrDarkMode,
   };
 
   const valueContextMemo = useMemo(() => ({
@@ -54,11 +57,7 @@ export default function ToDosProvider({ children }) {
 
   return (
     <ToDosContext.Provider value={valueContextMemo}>
-      {children}
+      <Home />
     </ToDosContext.Provider>
   );
 }
-
-ToDosProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
