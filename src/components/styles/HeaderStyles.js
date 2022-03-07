@@ -6,11 +6,6 @@ const HeaderContainer = styled.div`
   align-items: center;
 `;
 
-const Title = styled.h1`
-  color: #e5e5e5;
-  font-family: Roboto;
-`;
-
 const ContainerInputAndButton = styled.div`
   display: flex;
 `;
@@ -50,7 +45,6 @@ const ButtonHeader = styled.div`
 
 export {
   HeaderContainer,
-  Title,
   LabelInput,
   Input,
   ButtonHeader,

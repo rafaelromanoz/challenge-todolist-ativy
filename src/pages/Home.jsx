@@ -12,7 +12,7 @@ export default function Home() {
     <div>
       <GlobalStyle theme={isLightOrDarkMode} />
       <ToggleThemeButton />
-      <Header theme={isLightOrDarkMode} />
+      <Header />
       <ToDoList />
       <TodoModal />
     </div>

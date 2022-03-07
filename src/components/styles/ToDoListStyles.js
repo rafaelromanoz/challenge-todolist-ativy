@@ -19,15 +19,38 @@ const TodoCard = styled.div`
 `;
 
 const ButtonEdit = styled.button`
-  width: 100px;
-  border-radius: 6px;
-  background-color: #f6f059;
+  background-color: #fff000;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 `;
 
 const ButtonDelete = styled.button`
-  width: 100px;
   background-color: #6f1e1e;
-  border-radius: 6px;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  box-sizing: border-box;
+  margin-left: 6px;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 `;
 
 export {

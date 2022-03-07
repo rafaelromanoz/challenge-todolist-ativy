@@ -10,6 +10,7 @@ export default function ToDoList() {
     todosList,
     handleClickDeleteTodo,
     handleClickUpdateTodo,
+    setStatus,
   } = useContext(ToDosContext);
 
   if (todosList.length === 0) {
@@ -23,6 +24,15 @@ export default function ToDoList() {
     <TodoContainerCard>
       {todosList.map(({ todo, id }) => (
         <TodoCard key={id}>
+          <select
+            name="status"
+            id="status"
+            onChange={({ target }) => setStatus(target.value)}
+          >
+            <option value="pendente">Pendente</option>
+            <option value="andamento">Em andamento</option>
+            <option value="finalizado">Finalizado</option>
+          </select>
           <p>{todo}</p>
           <ButtonEdit
             type="button"

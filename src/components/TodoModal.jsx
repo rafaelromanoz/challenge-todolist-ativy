@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import ToDosContext from '../context/ToDosContext';
-import { ContainerTodoModal, InputModal } from './styles/TodoModalStyles';
+import { ButtonModal, ContainerTodoModal, InputModal } from './styles/TodoModalStyles';
 
 export default function TodoModal() {
   const {
@@ -30,7 +30,12 @@ export default function TodoModal() {
           onChange={({ target }) => setUpdatedValueTodo(target.value)}
           value={updatedValueTodo}
         />
-        <button type="button" onClick={saveUpdatedTodo}>Salvar</button>
+        <ButtonModal
+          type="ButtonModal"
+          onClick={saveUpdatedTodo}
+        >
+          Salvar
+        </ButtonModal>
       </ContainerTodoModal>
     );
   } return null;

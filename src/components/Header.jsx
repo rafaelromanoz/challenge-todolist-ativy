@@ -4,7 +4,6 @@ import {
   HeaderContainer,
   Input,
   LabelInput,
-  Title,
   ButtonHeader,
   ContainerInputAndButton,
 } from './styles/HeaderStyles';
@@ -21,7 +20,7 @@ export default function Header() {
   } = useContext(ToDosContext);
   return (
     <HeaderContainer>
-      <Title>Challenge TodoList Ativy</Title>
+      <h1>Challenge TodoList Ativy</h1>
       <ContainerInputAndButton>
         <LabelInput htmlFor="inputTodo">
           <Input

@@ -9,6 +9,7 @@ export default function ToDosProvider() {
   const [todo, setTodo] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
   const [isLightOrDarkMode, setIsLightOrDarkMode] = useState(true);
+  const [status, setStatus] = useState('Pendente');
   const inputRef = useRef();
   const handleClickAddTodo = () => {
     // aqui estou criando um id para ser mais fácil identificar os todos
@@ -45,6 +46,7 @@ export default function ToDosProvider() {
     setTodosList,
     setModalOpen,
     setIsLightOrDarkMode,
+    setStatus,
     isModalOpen,
     todo,
     inputRef,
@@ -52,6 +54,7 @@ export default function ToDosProvider() {
     id,
     currentId,
     isLightOrDarkMode,
+    status,
   };
 
   const valueContextMemo = useMemo(() => ({
