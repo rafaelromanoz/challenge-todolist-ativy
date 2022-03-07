@@ -27,7 +27,7 @@ const LabelInput = styled.label`
 
 const Input = styled.input`
   font-family: 'Roboto', sans-serif;
-  color: #333;
+  color: #ffff;
   font-size: 1.2rem;
   margin: 0 auto;
   padding: 1.5rem 2rem;
@@ -44,7 +44,7 @@ const Input = styled.input`
 const ButtonHeader = styled.div`
   margin-left: 45px;
   width: 50px;
-  margin-top: 40px;
+  margin-top: 10px;
   align-self: center;
 `;
 

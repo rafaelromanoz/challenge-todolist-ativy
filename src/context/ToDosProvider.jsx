@@ -8,7 +8,7 @@ export default function ToDosProvider() {
   const [currentId, setCurrentId] = useState(0);
   const [todo, setTodo] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
-  const [isLightOrDarkMode, setIsLightOrDarkMode] = useState(false);
+  const [isLightOrDarkMode, setIsLightOrDarkMode] = useState(true);
   const inputRef = useRef();
   const handleClickAddTodo = () => {
     // aqui estou criando um id para ser mais fácil identificar os todos
@@ -21,6 +21,7 @@ export default function ToDosProvider() {
     // aqui pegamos o prevstate que é o array, faz o spread e adiciona um novo todo
     setTodosList((todoList) => [...todoList, newTodo]);
     setTodo('');
+    // voltar o foco no input
     inputRef.current.focus();
   };
 
@@ -30,7 +31,9 @@ export default function ToDosProvider() {
   };
 
   const handleClickUpdateTodo = (currentIdUpdate) => {
+    // abrir o modal
     setModalOpen(!isModalOpen);
+    // setar o id clicado
     setCurrentId(currentIdUpdate);
   };
 

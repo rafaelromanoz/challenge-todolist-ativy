@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import ToDosContext from '../context/ToDosContext';
+import { ContainerTodoModal, InputModal } from './styles/TodoModalStyles';
 
 export default function TodoModal() {
   const {
@@ -16,18 +17,21 @@ export default function TodoModal() {
     newUpdatedListTodo[currentId].todo = updatedValueTodo;
     // seto o novo valor
     setTodosList(newUpdatedListTodo);
+    // limpo o valor
+    setUpdatedValueTodo('');
+    // desativa o modal
     setModalOpen((prevStateToggle) => !prevStateToggle);
   };
   if (isModalOpen) {
     return (
-      <div>
-        <input
+      <ContainerTodoModal>
+        <InputModal
           type="text"
           onChange={({ target }) => setUpdatedValueTodo(target.value)}
           value={updatedValueTodo}
         />
         <button type="button" onClick={saveUpdatedTodo}>Salvar</button>
-      </div>
+      </ContainerTodoModal>
     );
   } return null;
 }

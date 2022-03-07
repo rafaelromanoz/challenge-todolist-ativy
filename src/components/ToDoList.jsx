@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
-import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
+import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import ToDosContext from '../context/ToDosContext';
-import { TodoCard, TodoContainerCard } from './styles/ToDoListStyles';
+import {
+  ButtonDelete, ButtonEdit, TodoCard, TodoContainerCard,
+} from './styles/ToDoListStyles';
 
 export default function ToDoList() {
   const {
@@ -12,7 +14,7 @@ export default function ToDoList() {
 
   if (todosList.length === 0) {
     return (
-      <p style={{ textAlign: 'center' }}>
+      <p style={{ textAlign: 'center', color: 'white' }}>
         Nenhum todo até o momento.
       </p>
     );
@@ -22,18 +24,20 @@ export default function ToDoList() {
       {todosList.map(({ todo, id }) => (
         <TodoCard key={id}>
           <p>{todo}</p>
-          <button
+          <ButtonEdit
             type="button"
             onClick={() => handleClickUpdateTodo(id)}
           >
-            <AiFillEdit />
-          </button>
-          <button
+            Editar
+            <AiOutlineEdit />
+          </ButtonEdit>
+          <ButtonDelete
             onClick={() => handleClickDeleteTodo(id)}
             type="button"
           >
-            <AiFillDelete />
-          </button>
+            Deletar
+            <AiOutlineDelete />
+          </ButtonDelete>
         </TodoCard>
       ))}
     </TodoContainerCard>
