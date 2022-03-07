@@ -1,13 +1,15 @@
-import PropTypes from 'prop-types';
 import React, { useMemo, useRef, useState } from 'react';
+import Home from '../pages/Home';
 import ToDosContext from './ToDosContext';
 
-export default function ToDosProvider({ children }) {
+export default function ToDosProvider() {
   const [todosList, setTodosList] = useState([]);
   const [id, setId] = useState(0);
   const [currentId, setCurrentId] = useState(0);
   const [todo, setTodo] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isLightOrDarkMode, setIsLightOrDarkMode] = useState(true);
+  const [status, setStatus] = useState('Pendente');
   const inputRef = useRef();
   const handleClickAddTodo = () => {
     // aqui estou criando um id para ser mais fácil identificar os todos
@@ -20,6 +22,7 @@ export default function ToDosProvider({ children }) {
     // aqui pegamos o prevstate que é o array, faz o spread e adiciona um novo todo
     setTodosList((todoList) => [...todoList, newTodo]);
     setTodo('');
+    // voltar o foco no input
     inputRef.current.focus();
   };
 
@@ -29,7 +32,9 @@ export default function ToDosProvider({ children }) {
   };
 
   const handleClickUpdateTodo = (currentIdUpdate) => {
+    // abrir o modal
     setModalOpen(!isModalOpen);
+    // setar o id clicado
     setCurrentId(currentIdUpdate);
   };
 
@@ -40,12 +45,16 @@ export default function ToDosProvider({ children }) {
     handleClickUpdateTodo,
     setTodosList,
     setModalOpen,
+    setIsLightOrDarkMode,
+    setStatus,
     isModalOpen,
     todo,
     inputRef,
     todosList,
     id,
     currentId,
+    isLightOrDarkMode,
+    status,
   };
 
   const valueContextMemo = useMemo(() => ({
@@ -54,11 +63,7 @@ export default function ToDosProvider({ children }) {
 
   return (
     <ToDosContext.Provider value={valueContextMemo}>
-      {children}
+      <Home />
     </ToDosContext.Provider>
   );
 }
-
-ToDosProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
