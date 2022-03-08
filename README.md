@@ -5,6 +5,8 @@ Teste técnico feito para a empresa Ativy para a vaga de frontend, o projeto é 
 Também é possível alterar de tema claro para tema escuro clicando no icone superior direito.
 
 Como ferramenta de controle de estado foi utilizado o Context API e para estilização foi utilizado o styled-components.
+
+Como ferramenta de padronização de código foi utilizado o EsLint com configuração do Airbnb.
 ## Instalando dependências
 
 npm i ou npm install
@@ -21,4 +23,5 @@ npm test
 
 * [React](https://www.typescriptlang.org/) - Linguagem
 * [JavaScript](javascript.com) - Linguagem.
+* [EsLint](https://eslint.org/) - Padronização de código
 * [Styled-Components](https://styled-components.com/) - Biblioteca CSS.

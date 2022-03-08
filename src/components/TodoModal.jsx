@@ -14,6 +14,7 @@ export default function TodoModal() {
   const saveUpdatedTodo = () => {
     // aqui faço uma cópia da lista de todo, e faço o update da task
     const newUpdatedListTodo = [...todosList];
+    // aqui é usado a chave dinamica do es6 para achar o todo clicado
     newUpdatedListTodo[currentId].todo = updatedValueTodo;
     // seto o novo valor
     setTodosList(newUpdatedListTodo);
