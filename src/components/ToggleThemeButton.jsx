@@ -4,7 +4,10 @@ import iconSun from '../images/icons8-sun-50.png';
 import ToDosContext from '../context/ToDosContext';
 
 export default function ToggleThemeButton() {
-  const { setIsLightOrDarkMode, isLightOrDarkMode } = useContext(ToDosContext);
+  const {
+    setIsLightOrDarkMode,
+    isLightOrDarkMode,
+  } = useContext(ToDosContext);
   return (
     <div
       style={{
