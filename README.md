@@ -7,6 +7,8 @@ Também é possível alterar de tema claro para tema escuro clicando no icone su
 Como ferramenta de controle de estado foi utilizado o Context API e para estilização foi utilizado o styled-components.
 
 Como ferramenta de padronização de código foi utilizado o EsLint com configuração do Airbnb.
+
+Foram feitos os testes em RTL para o aplicativo.
 ## Instalando dependências
 
 npm i ou npm install
