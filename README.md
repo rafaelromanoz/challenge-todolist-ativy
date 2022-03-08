@@ -13,6 +13,10 @@ npm i ou npm install
 
 npm start
 
+## Rodando testes
+
+npm test
+
 ## 🛠️ Construído com
 
 * [React](https://www.typescriptlang.org/) - Linguagem

@@ -57,6 +57,8 @@ export default function ToDosProvider() {
     status,
   };
 
+  // foi usado o useMemo para deixar mais performático o sistema
+
   const valueContextMemo = useMemo(() => ({
     ...context,
   }));
